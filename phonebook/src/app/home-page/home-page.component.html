@@ -1,0 +1,31 @@
+<div class="search">
+  <span class="fa fa-search"></span>
+  <input type="text"
+         [(ngModel)]="searchWord"
+         (keyup)="onSearchType($event.target.value)"
+         class="search-input"
+         placeholder="Search">
+  <button class="add-new-button">
+    <a routerLink="/create">New Contact</a>
+  </button>
+</div>
+<div class="contacts-list">
+  <ul class="contacts" >
+    <ng-template ngFor let-contact [ngForOf]="contacts" let-i="index">
+      <div class="contacts-c">
+        <li routerLink="/detail/{{contact.id}}">
+          <label>{{contact.name + " " + contact.last_name}}</label>
+        </li>
+        <div class="edit-link">
+          <a routerLink="/edit/{{contact.id}}">
+            edit
+          </a>
+        </div>
+      </div>
+    </ng-template>
+  </ul>
+</div>
+
+
+
+
