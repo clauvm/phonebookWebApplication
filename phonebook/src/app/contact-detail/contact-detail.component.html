@@ -1,0 +1,77 @@
+<div *ngIf="contact">
+  <h2 *ngIf="!create">{{contact.name + " " + contact.last_name | uppercase}} Details</h2>
+  <div class="details">
+    <form #contactForm="ngForm" (ngSubmit)="save()">
+      <table>
+        <tr>
+          <td class="field-name">
+            <label>Name</label>
+          </td>
+          <td>
+            <input *ngIf="edit || create"
+                   [(ngModel)]="contact.name"
+                   required name="name"
+                   placeholder="name"/>
+            <span *ngIf="!edit && !create">{{contact.name}}</span>
+          </td>
+        </tr>
+        <tr>
+          <td class="field-name">
+            <label>Last name</label>
+          </td>
+          <td>
+            <input *ngIf="edit || create"
+                   [(ngModel)]="contact.last_name"
+                   required name="lastName"
+                   placeholder="last name"/>
+            <span *ngIf="!edit && !create">{{contact.last_name}}</span>
+          </td>
+        </tr>
+      </table>
+      <br>
+      <div>
+        <h3>Phone number(s)</h3>
+      </div>
+      <table>
+        <tr *ngFor="let phoneNumber of contact.phoneNumbers; let i = index;">
+          <td [ngStyle]="{'padding': (edit || create) ? '20px':'10px'}">
+            <input *ngIf="edit || create"
+                   [(ngModel)]="phoneNumber.number"
+                   name="phoneAdd{{i}}"
+                   required appPhonenumber
+                   placeholder="phone number"/>
+            <span *ngIf="!edit && !create">{{phoneNumber.number}}</span>
+          </td>
+        </tr>
+        <tr *ngIf="contact.phoneNumbers.length == 0">
+          <td class="empty-field">
+            <input type="text"
+                   name="ph"
+                   formnovalidate
+                   [(ngModel)]="phoneNumberCreate.number"
+                   (ngModelChange)="checkPhone()"
+                   placeholder="phone number">
+          </td>
+        </tr>
+        <tr *ngIf="edit || create">
+          <td>
+            <button type="button"
+                    class="add-phone-button"
+                    (click)="addPhoneNumber()">
+              <i class="fa fa-plus-circle"></i>Add phone number</button>
+          </td>
+        </tr>
+      </table>
+    </form>
+    <button *ngIf="edit || create" (click)="save()"
+            [disabled]="(!contactForm.valid || (!checkPhonenumber && create))"
+            class="save-cancel-button">
+      <label>Save</label>
+    </button>
+    <button (click)="goBack()"
+            class="save-cancel-button">
+      <label *ngIf="edit || create">Cancel</label>
+      <label *ngIf="!edit && !create">Go Back</label>
+    </button>
+  </div>
+</div>
