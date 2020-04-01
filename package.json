@@ -1,0 +1,37 @@
+{
+  "name": "phonebook",
+  "version": "0.0.0",
+  "private": true,
+  "main": "app.js",
+  "scripts": {
+    "start": "node ./bin/www",
+    "test": "IP=0.0.0.0 PORT=3030 mocha --timeout 5000 tests/*.test.js",
+    "cleanData": "mysql -uroot -pcontrol123! < database/drop.sql && mysql -uroot -pcontrol123! < database/create.sql && mysql -uroot -pcontrol123! < database/populate.sql",
+    "createDatabase": "mysql -uroot -pcontrol123! < database/create.sql",
+    "dropDatabase": "mysql -uroot -pcontrol123! < database/drop.sql"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "morgan": "~1.9.1",
+    "body-parser": "~1.15.2",
+    "chai": "^3.5.0",
+    "chai-http": "^2.0.1",
+    "cors": "^2.8.3",
+    "jsonwebtoken": "^7.2.1",
+    "mkdirp": "^0.5.1",
+    "mocha": "^2.4.5",
+    "mongodb": "^2.1.16",
+    "mongoose": "^5.0.11",
+    "multer": "^1.3.0",
+    "mysql": "^2.12.0",
+    "mysql2": "^1.1.2",
+    "node-rest-client": "^2.0.1",
+    "object-assign": "4.1.0",
+    "rand-token": "^0.3.0",
+    "sequelize": "^3.28.0",
+    "swagger-jsdoc": "^1.9.7",
+    "swagger-node-express": "^2.1.3"
+  }
+}
