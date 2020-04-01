@@ -1,0 +1,28 @@
+html { background-color: #FFFBE5; }
+
+.phonebook-title{
+  height: 10%;
+  width: 100%;
+  background-color: #2253C6;
+  color: white;
+  top: 0 !important;
+  left: 0 !important;
+  position:fixed;
+  text-align:center;
+}
+
+.phonebook-title h1{
+  vertical-align: center;
+}
+
+.home-page {
+  position: fixed;
+  top: 12%;
+  width: 100%;
+}
+
+.app-pages {
+  position: fixed;
+  top: 12%;
+  width: 100%;
+}
