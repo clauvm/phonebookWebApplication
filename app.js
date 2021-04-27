@@ -37,6 +37,20 @@ app.get('/swagger.json', function (req, res) {
 app.use('/', indexRouter);
 app.use('/contact', contactRoute);
 app.use('/phoneNumber', phoneNumberRoute);
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    // res.header('Access-Control-Allow-Headers', 'Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method');
+    // res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
+    // res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE');
+    next();
+
+    app.options('*', (req, res) => {
+        // allowed XHR methods
+        res.header('Access-Control-Allow-Methods', 'GET, PATCH, PUT, POST, DELETE, OPTIONS');
+        res.send();
+    });
+});
+
 
 
 module.exports = app;

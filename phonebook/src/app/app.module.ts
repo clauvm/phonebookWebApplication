@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { ContactDetailComponent } from './contact-detail/contact-detail.component';
-import { HttpClientModule }    from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { PhonenumberDirective } from './phonenumber.directive';
 import { ReactiveFormsModule } from '@angular/forms';
 

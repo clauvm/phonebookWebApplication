@@ -25,11 +25,11 @@ First run:
 
 To run all the web app, get into the root directory and run:
 ```bash
-npm createDatabase
+npm run createDatabase
 ```
 This will create the database, in order to be able to see the preloaded data, run:
 ```bash
-npm cleanData
+npm run cleanData
 ```
 Then start the server
 ```bash
